@@ -637,9 +637,9 @@ body::after {
   white-space: nowrap;
   z-index: 3;
 }
-.orb-lbl:nth-of-type(1) { top: 8%; right: 2%; }
-.orb-lbl:nth-of-type(2) { bottom: 18%; left: 0; }
-.orb-lbl:nth-of-type(3) { top: 48%; right: 0; }
+.orb-lbl:nth-of-type(1) { top: 11%; right: 6%; }
+.orb-lbl:nth-of-type(2) { bottom: 20%; left: 16%; }
+.orb-lbl:nth-of-type(3) { top: 47%; right: 10%; }
 
 /* ══════════════════════════════════════════
    SKILLS
