@@ -231,6 +231,7 @@ body::after {
   z-index: 2;
   padding: 0 5vw;
   padding-top: 16vh;
+  padding-bottom: 10vh;
   width: 100%;
 }
 .hero-eyebrow {
