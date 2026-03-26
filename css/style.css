@@ -873,6 +873,7 @@ body::after {
 .proj-card:hover { background: var(--surface); }
 .proj-card:hover::after { opacity: 1; }
 .proj-card.wide { grid-column: span 2; }
+.proj-card.full { grid-column: 1 / -1; }
 
 .proj-num {
   font-family: var(--f-mono);
