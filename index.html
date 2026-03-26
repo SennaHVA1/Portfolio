@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Senna Hogendoorn — Cyber Security Specialist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div id="cur-ring"></div>
+  <div id="cur-dot"></div>
+
+  <!-- Navigation -->
+  <nav id="nav">
+    <a href="#hero" class="nav-logo">
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="18,2 34,10 34,26 18,34 2,26 2,10"
+                 stroke="#d49f1e" stroke-width="1.2" fill="none"/>
+        <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle"
+              font-family="Cormorant Garamond,serif" font-size="12"
+              font-weight="600" font-style="italic" fill="#d49f1e">SH</text>
+      </svg>
+      <span class="nav-logo-text">Senna Hogendoorn</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">Over mij</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#timeline">Ervaring</a></li>
+      <li><a href="#projects">Projecten</a></li>
+      <li><a href="#traineeship">Traineeship</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-burger" id="navBurger" aria-label="Menu openen">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ░░ HERO ░░ -->
+  <section id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-veil"></div>
+
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span class="hero-eyebrow-text">Cyber Security Specialist · Purmerend, NL</span>
+      </div>
+      <h1 class="hero-name">
+        <span class="outline">Senna</span><br>Hogendoorn
+      </h1>
+      <p class="hero-role">HBO-ICT Cybersecurity — Young Professional</p>
+      <p class="hero-tagline">
+        "Structuur is mijn verdediging.<br>
+        Nieuwsgierigheid is mijn wapen."
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary"><span>Bekijk mijn werk</span></a>
+        <a href="#contact" class="btn-outline">Contact opnemen</a>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-n">4+</div>
+        <div class="hero-stat-l">Jaar ICT-ervaring</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-n">CPTS</div>
+        <div class="hero-stat-l">HTB — Actief</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-n">∞</div>
+        <div class="hero-stat-l">Leergierigheid</div>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="hero-scroll-bar"></div>
+      <span class="hero-scroll-lbl">scroll</span>
+    </div>
+  </section>
+
+  <!-- ░░ TICKER ░░ -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker-belt">
+      <span class="ticker-item">Penetration Testing</span>
+      <span class="ticker-item">Network Security</span>
+      <span class="ticker-item">Python</span>
+      <span class="ticker-item">Linux</span>
+      <span class="ticker-item">Metasploit</span>
+      <span class="ticker-item">Docker</span>
+      <span class="ticker-item">Azure</span>
+      <span class="ticker-item">Burp Suite</span>
+      <span class="ticker-item">Wireshark</span>
+      <span class="ticker-item">Active Directory</span>
+      <span class="ticker-item">ISO 27001</span>
+      <span class="ticker-item">NIS2 &amp; DORA</span>
+      <span class="ticker-item">Red Teaming</span>
+      <span class="ticker-item">Blue Teaming</span>
+      <span class="ticker-item">Hack The Box</span>
+      <span class="ticker-item">CTF Events</span>
+      <span class="ticker-item">Penetration Testing</span>
+      <span class="ticker-item">Network Security</span>
+      <span class="ticker-item">Python</span>
+      <span class="ticker-item">Linux</span>
+      <span class="ticker-item">Metasploit</span>
+      <span class="ticker-item">Docker</span>
+      <span class="ticker-item">Azure</span>
+      <span class="ticker-item">Burp Suite</span>
+      <span class="ticker-item">Wireshark</span>
+      <span class="ticker-item">Active Directory</span>
+      <span class="ticker-item">ISO 27001</span>
+      <span class="ticker-item">NIS2 &amp; DORA</span>
+      <span class="ticker-item">Red Teaming</span>
+      <span class="ticker-item">Blue Teaming</span>
+      <span class="ticker-item">Hack The Box</span>
+      <span class="ticker-item">CTF Events</span>
+    </div>
+  </div>
+
+  <!-- ░░ ABOUT ░░ -->
+  <section class="sec" id="about">
+    <div class="sec-in">
+      <div class="sec-lbl rv"><span class="sec-lbl-num">01 /</span>&nbsp;Over mij</div>
+      <h2 class="sec-title rv" data-d="1">Een profiel.<br><em>Méér dan een CV.</em></h2>
+
+      <div class="about-grid">
+        <div>
+          <p class="about-intro rv" data-d="2">
+            Ik ben <strong>Senna Hogendoorn</strong>, 20 jaar, en net afgestudeerd in
+            <em>HBO-ICT Cybersecurity</em> aan de Hogeschool van Amsterdam.
+          </p>
+          <p class="about-body rv" data-d="3">
+            Mijn passie voor security is niet alleen theoretisch — het zit in alles wat ik doe.
+            Van actief trainen op Hack The Box en deelnemen aan CTF-events tot het werken aan
+            mijn CPTS-certificering: ik sta nooit stil. Tijdens mijn afstudeerstage bij
+            Holding the Drones ontwierp ik een robuuste databasearchitectuur voor
+            real-time dronecommunicatie waarbij beschikbaarheid én beveiliging hand in hand gingen.
+          </p>
+          <p class="about-body rv" data-d="4">
+            Ik werk kalm, gestructureerd en blijf helder onder druk. Technische complexiteit
+            vertaal ik naar begrijpelijke taal — een vaardigheid verfijnd door jaren freelance
+            computerhulp aan particulieren. Via het Breinstein Cyber Security Traineeship
+            verdiep ik me nu in risicomanagement, compliance en beveiligingsarchitectuur
+            op post-master niveau bij Antwerp Management School.
+          </p>
+          <div class="tags rv" data-d="5">
+            <span class="tag">Analytisch</span>
+            <span class="tag">Sociaal vaardig</span>
+            <span class="tag">Zorgvuldig</span>
+            <span class="tag">Veerkrachtig</span>
+            <span class="tag">Aanpassingsvermogen</span>
+            <span class="tag">Leiderschapspotentieel</span>
+          </div>
+        </div>
+
+        <div class="about-vis rv-r" data-d="2">
+          <div class="orb"></div>
+          <div class="orb"></div>
+          <div class="orb"></div>
+          <div class="orb-center">
+            <span class="orb-sh">SH</span>
+            <span class="orb-city">Purmerend</span>
+          </div>
+          <span class="orb-lbl">HTB Active</span>
+          <span class="orb-lbl">HvA '25</span>
+          <span class="orb-lbl">CPTS →</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ SKILLS ░░ -->
+  <section class="sec alt" id="skills">
+    <div class="sec-in">
+      <div class="sec-lbl rv"><span class="sec-lbl-num">02 /</span>&nbsp;Skills &amp; Expertise</div>
+      <h2 class="sec-title rv" data-d="1">Technologieën<br><em>&amp; Tooling</em></h2>
+
+      <div class="skills-grid">
+        <div class="radar-wrap rv-l" data-d="2">
+          <div class="radar-label">// threat assessment radar</div>
+          <canvas id="radar"></canvas>
+          <div class="radar-key">
+            <div class="radar-key-item">
+              <div class="radar-key-dot" style="background:#d49f1e"></div>Offensief
+            </div>
+            <div class="radar-key-item">
+              <div class="radar-key-dot" style="background:#4e90b0"></div>Defensief
+            </div>
+            <div class="radar-key-item">
+              <div class="radar-key-dot" style="background:#e2d8b8"></div>Systemen
+            </div>
+            <div class="radar-key-item">
+              <div class="radar-key-dot" style="background:#3ab57a"></div>Frameworks
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-cols rv-r" data-d="2">
+          <div>
+            <div class="skill-cat-name">Programmeren &amp; Scripting</div>
+            <div class="stags">
+              <span class="stag hi">Python</span>
+              <span class="stag hi">Bash</span>
+              <span class="stag">PowerShell</span>
+              <span class="stag">SQL</span>
+              <span class="stag">HTML / CSS / JS</span>
+            </div>
+          </div>
+          <div>
+            <div class="skill-cat-name">Security Tools</div>
+            <div class="stags">
+              <span class="stag hi">Metasploit</span>
+              <span class="stag hi">Burp Suite</span>
+              <span class="stag hi">Nmap</span>
+              <span class="stag hi">Wireshark</span>
+              <span class="stag">John the Ripper</span>
+              <span class="stag">Splunk</span>
+            </div>
+          </div>
+          <div>
+            <div class="skill-cat-name">Infrastructuur &amp; Cloud</div>
+            <div class="stags">
+              <span class="stag hi">Linux</span>
+              <span class="stag hi">Docker</span>
+              <span class="stag hi">Azure</span>
+              <span class="stag">VMware</span>
+              <span class="stag">VirtualBox</span>
+              <span class="stag">Windows Server</span>
+              <span class="stag">Git</span>
+            </div>
+          </div>
+          <div>
+            <div class="skill-cat-name">Frameworks &amp; Compliance</div>
+            <div class="stags">
+              <span class="stag hi">ISO 27001/27002</span>
+              <span class="stag">NIS2</span>
+              <span class="stag">DORA</span>
+              <span class="stag">NIST</span>
+              <span class="stag">GDPR</span>
+              <span class="stag">Scrum / Agile</span>
+            </div>
+          </div>
+          <div>
+            <div class="skill-cat-name">Specialisaties</div>
+            <div class="stags">
+              <span class="stag hi">Pen Testing</span>
+              <span class="stag hi">Red Teaming</span>
+              <span class="stag">Blue Teaming</span>
+              <span class="stag">Database Security</span>
+              <span class="stag">Netwerk Security</span>
+              <span class="stag">Cryptografie</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ TIMELINE ░░ -->
+  <section class="sec" id="timeline">
+    <div class="sec-in">
+      <div class="sec-lbl rv"><span class="sec-lbl-num">03 /</span>&nbsp;Werkervaring &amp; Opleiding</div>
+      <h2 class="sec-title rv" data-d="1">Pad naar<br><em>Expertise</em></h2>
+
+      <div class="tl">
+        <div class="tl-line"></div>
+
+        <!-- 1: odd = LEFT — HAVO (where it all began) -->
+        <div class="tl-row rv-l" data-d="1">
+          <div class="tl-dot edu"></div>
+          <div class="tl-card edu">
+            <div class="tl-type edu">Opleiding</div>
+            <div class="tl-title">HAVO — Informatica</div>
+            <div class="tl-org">Middelbare school</div>
+            <div class="tl-meta"><span class="tl-date">2016 — 2021</span></div>
+            <ul class="tl-body">
+              <li>Eerste kennismaking met programmeren en ICT via het vak Informatica</li>
+              <li>Maakte mijn eerste game met Unity — het vonkje dat alles in gang zette</li>
+              <li>Interesse in cybersecurity en IT groeide hier en werd de drijfveer voor mijn verdere opleiding</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 2: even = RIGHT — HBO -->
+        <div class="tl-row rv-r" data-d="1">
+          <div class="tl-dot edu"></div>
+          <div class="tl-card edu">
+            <div class="tl-type edu">Opleiding</div>
+            <div class="tl-title">HBO-ICT Cybersecurity</div>
+            <div class="tl-org">Hogeschool van Amsterdam</div>
+            <div class="tl-meta"><span class="tl-date">sep 2021 — jul 2025</span></div>
+            <ul class="tl-body">
+              <li>Netwerkbeveiliging, ethical hacking &amp; penetration testing</li>
+              <li>Cloud (Azure), AI/ML minor, Scrum/Agile projecten</li>
+              <li>ISO 27001, NIS2 en informatiebeveiliging</li>
+              <li>Afstudeerstage: database-architectuur voor drones</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 3: odd = LEFT — Technoberg -->
+        <div class="tl-row rv-l" data-d="2">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-type">Werkervaring</div>
+            <div class="tl-title">IT Medewerker</div>
+            <div class="tl-org">Technoberg</div>
+            <div class="tl-meta"><span class="tl-date">feb 2023 — sep 2023</span></div>
+            <ul class="tl-body">
+              <li>Eerste- en tweedelijns support; netwerkapparatuur configureren (FortiGate, Cisco, UniFi)</li>
+              <li>Serveronderhoud en back-upmonitoring via Veeam</li>
+              <li>Vergelijkend onderzoek netwerkscan software: Nmap, SolarWinds, Advanced IP Scanner</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 4: even = RIGHT — Freelance Fiksi -->
+        <div class="tl-row rv-r" data-d="2">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-type">Freelance</div>
+            <div class="tl-title">Freelance Computer Hulp</div>
+            <div class="tl-org">Fiksi</div>
+            <div class="tl-meta"><span class="tl-date">mei 2023 — heden</span></div>
+            <ul class="tl-body">
+              <li>IT-support voor particulieren bij computer-, netwerk- en printerproblemen</li>
+              <li>Advies over online veiligheid, phishing-bewustzijn en wachtwoordbeleid</li>
+              <li>Verbetering van digitale zelfredzaamheid, met name bij ouderen</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 5: odd = LEFT — Afstudeerstage -->
+        <div class="tl-row rv-l" data-d="3">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-type">Afstudeerstage</div>
+            <div class="tl-title">Security Database Architectuur</div>
+            <div class="tl-org">Holding the Drones</div>
+            <div class="tl-meta"><span class="tl-date">feb 2025 — jul 2025</span></div>
+            <ul class="tl-body">
+              <li>Resiliente database-architectuur voor real-time dronecommunicatie</li>
+              <li>MariaDB Galera Cluster, MaxScale loadbalancing, automatische failover</li>
+              <li>TLS-encryptie, toegangsbeheer en auditing structureel ingebouwd</li>
+              <li>Volledig proof-of-concept inclusief securityrapport en aanbevelingen</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 6: even = RIGHT — CPTS -->
+        <div class="tl-row rv-r" data-d="3">
+          <div class="tl-dot edu"></div>
+          <div class="tl-card edu">
+            <div class="tl-type edu">Certificering</div>
+            <div class="tl-title">CPTS — Certified Penetration Testing Specialist</div>
+            <div class="tl-org">Hack The Box Academy</div>
+            <div class="tl-meta"><span class="tl-date">dec 2025 — heden</span></div>
+            <ul class="tl-body">
+              <li>Geavanceerde pen testing: netwerk, web, Active Directory</li>
+              <li>Reconnaissance, exploitatie, privilege escalation, post-exploitation</li>
+              <li>Realistische labomgevingen; systematisch rapporteren van kwetsbaarheden</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ PROJECTS ░░ -->
+  <section class="sec alt" id="projects">
+    <div class="sec-in">
+      <div class="sec-lbl rv"><span class="sec-lbl-num">04 /</span>&nbsp;Projecten</div>
+      <h2 class="sec-title rv" data-d="1">Werk dat<br><em>telt.</em></h2>
+
+      <div class="proj-grid">
+        <div class="proj-card wide rv" data-d="1">
+          <div class="proj-num">
+            <span>PROJECT 01</span>
+            <span class="proj-badge">Afstudeerstage</span>
+          </div>
+          <div class="proj-title">Resiliente Database-architectuur voor Grootschalige Drone-inzet</div>
+          <div class="proj-desc">
+            Ontwerp en implementatie van een high-availability databasesysteem voor real-time
+            dronecommunicatie bij Holding the Drones. MariaDB Galera Cluster voor synchrone
+            replicatie, MaxScale als intelligente load balancer en automatische failover-clustering.
+            Cybersecurityprincipes — TLS-encryptie, toegangsbeheer en auditing — structureel
+            ingebouwd. Resultaat: volledig proof-of-concept met securityrapport.
+          </div>
+          <div class="proj-tech">
+            <span class="tech">MariaDB Galera</span>
+            <span class="tech">MaxScale</span>
+            <span class="tech">Docker</span>
+            <span class="tech">TLS/SSL</span>
+            <span class="tech">Linux</span>
+            <span class="tech">Bash</span>
+            <span class="tech">Python</span>
+          </div>
+        </div>
+
+        <div class="proj-card rv" data-d="2">
+          <div class="proj-num">
+            <span>PROJECT 02</span>
+            <span class="proj-badge">Onderzoek</span>
+          </div>
+          <div class="proj-title">Vergelijkend Netwerkscan Onderzoek</div>
+          <div class="proj-desc">
+            Uitgebreid vergelijkend onderzoek naar netwerkscan software bij Technoberg.
+            Tools beoordeeld op prestaties, functies en bruikbaarheid voor professionele omgevingen.
+          </div>
+          <div class="proj-tech">
+            <span class="tech">Nmap</span>
+            <span class="tech">SolarWinds</span>
+            <span class="tech">Advanced IP Scanner</span>
+          </div>
+        </div>
+
+        <div class="proj-card rv" data-d="2">
+          <div class="proj-num">
+            <span>PROJECT 03</span>
+            <span class="proj-badge">Certificering</span>
+          </div>
+          <div class="proj-title">CPTS Training &amp; CTF-events</div>
+          <div class="proj-desc">
+            Actieve training op Hack The Box richting CPTS-certificering. Deelname aan CTF-events
+            om offensieve vaardigheden te scherpen in realistische aanvalsscenario's.
+          </div>
+          <div class="proj-tech">
+            <span class="tech">Metasploit</span>
+            <span class="tech">Burp Suite</span>
+            <span class="tech">Active Directory</span>
+            <span class="tech">Python</span>
+          </div>
+        </div>
+
+        <div class="proj-card rv" data-d="3">
+          <div class="proj-num">
+            <span>PROJECT 04</span>
+            <span class="proj-badge">AI Minor</span>
+          </div>
+          <div class="proj-title">Applied AI &amp; Machine Learning</div>
+          <div class="proj-desc">
+            Minor Applied Artificial Intelligence aan de HvA. Eigen ML-modellen
+            ontwikkeld, getraind en geëvalueerd op real-world datasets.
+          </div>
+          <div class="proj-tech">
+            <span class="tech">Python</span>
+            <span class="tech">ML Frameworks</span>
+            <span class="tech">Data-analyse</span>
+          </div>
+        </div>
+
+        <div class="proj-card rv" data-d="3">
+          <div class="proj-num">
+            <span>PROJECT 05</span>
+            <span class="proj-badge">Cloud</span>
+          </div>
+          <div class="proj-title">Azure Cloud Security &amp; Architecture</div>
+          <div class="proj-desc">
+            Themasemester cloud solutions — Azure-omgevingen ontwerpen en beheren
+            met focus op cloudbeveiliging, IAM en deployment.
+          </div>
+          <div class="proj-tech">
+            <span class="tech">Microsoft Azure</span>
+            <span class="tech">IAM</span>
+            <span class="tech">Cloud Security</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ TRAINEESHIP — WOW ░░ -->
+  <section id="traineeship">
+    <div class="t-glow"></div>
+    <div class="t-deco-h" aria-hidden="true"></div>
+    <div class="t-deco-v" aria-hidden="true"></div>
+
+    <div class="t-lbl rv">// Breinstein Cyber Security Traineeship</div>
+    <div class="t-big rv" data-d="1">
+      <span class="l1">Cyber</span>
+      <span class="l2">Security</span>
+      <span class="l3">Traineeship</span>
+    </div>
+    <div class="t-partner rv" data-d="1">
+      Opleiding via Antwerp Management School — post-master niveau &nbsp;·&nbsp; 24 maanden
+    </div>
+    <p class="t-desc rv" data-d="2">
+      Breinstein leidt young professionals op tot Cyber Security expert —
+      van risicobeheer en wet- en regelgeving tot crisismanagement en stakeholdercommunicatie.
+      Fulltime dienstverband vanaf dag één.
+    </p>
+    <div class="t-modules rv" data-d="3">
+      <span class="t-mod">Cyber &amp; IT Risk Management</span>
+      <span class="t-mod">GDPR &amp; Privacy</span>
+      <span class="t-mod">NIS2 &amp; DORA</span>
+      <span class="t-mod">Security Architectuur</span>
+      <span class="t-mod">ISO 27001 / ISMS / NIST</span>
+      <span class="t-mod">Identity &amp; Access Management</span>
+      <span class="t-mod">Stakeholdermanagement</span>
+      <span class="t-mod">Crisissimulaties</span>
+      <span class="t-mod">Business Continuity</span>
+      <span class="t-mod">Scrum / Agile</span>
+      <span class="t-mod">AI in Security</span>
+      <span class="t-mod">Leiderschap</span>
+      <span class="t-mod">Weerstand &amp; Overtuigen</span>
+    </div>
+  </section>
+
+  <!-- ░░ CERTIFICATIONS ░░ -->
+  <section class="sec" id="certs">
+    <div class="sec-in">
+      <div class="sec-lbl rv"><span class="sec-lbl-num">05 /</span>&nbsp;Certificeringen</div>
+      <!-- Fixed: was "Credentials in aantocht" -->
+      <h2 class="sec-title rv" data-d="1">Certificeringen<br><em>in aantocht</em></h2>
+
+      <div class="certs-grid">
+        <div class="cert-card rv" data-d="1">
+          <div class="cert-abbr">CPTS</div>
+          <div class="cert-name">Certified Penetration Testing Specialist</div>
+          <div class="cert-issuer">Hack The Box</div>
+          <div class="cert-badge active">Bezig</div>
+        </div>
+        <div class="cert-card rv" data-d="2">
+          <div class="cert-abbr">PSM I</div>
+          <div class="cert-name">Professional Scrum Master I</div>
+          <div class="cert-issuer">Scrum.org — via Traineeship</div>
+          <div class="cert-badge soon">In traineeship</div>
+        </div>
+        <div class="cert-card rv" data-d="3">
+          <div class="cert-abbr">CISM</div>
+          <div class="cert-name">Certified Information Security Manager</div>
+          <div class="cert-issuer">ISACA — via Traineeship</div>
+          <div class="cert-badge soon">In traineeship</div>
+        </div>
+        <div class="cert-card rv" data-d="4">
+          <div class="cert-abbr">CRISC</div>
+          <div class="cert-name">Certified in Risk &amp; Information Systems Control</div>
+          <div class="cert-issuer">ISACA — via Traineeship</div>
+          <div class="cert-badge soon">In traineeship</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ CONTACT ░░ -->
+  <section id="contact">
+    <div class="contact-watermark" aria-hidden="true">Contact</div>
+    <div class="contact-body">
+      <div class="sec-lbl rv" style="justify-content:center">
+        <span class="sec-lbl-num">06 /</span>&nbsp;Contact
+      </div>
+      <h2 class="contact-title rv" data-d="1">Laten we<br>samenwerken.</h2>
+      <!-- Fixed: updated copy — no longer looking for stages/school -->
+      <p class="contact-sub rv" data-d="2">
+        Klaar voor de volgende stap in cybersecurity.<br>
+        Open voor uitdagende functies en opdrachten.
+      </p>
+      <div class="contact-links rv" data-d="3">
+        <a href="mailto:senna@example.com" class="c-link">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <span>E-mail</span>
+        </a>
+        <a href="https://linkedin.com/in/sennahogendoorn" target="_blank" rel="noopener" class="c-link">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+          </svg>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://github.com/sennahogendoorn" target="_blank" rel="noopener" class="c-link">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
+        <a href="https://profile.hackthebox.com/profile/019d29ae-5b01-71c9-a871-9aa5c2992500" target="_blank" rel="noopener" class="c-link">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+            <polyline points="2 17 12 22 22 17"/>
+            <polyline points="2 12 12 17 22 12"/>
+          </svg>
+          <span>Hack The Box</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ FOOTER ░░ -->
+  <footer>
+    <div class="foot-copy">© 2026 Senna Hogendoorn — Cybersecurity Specialist</div>
+    <div class="foot-status">
+      <div class="status-dot"></div>
+      Klaar voor de volgende stap
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
