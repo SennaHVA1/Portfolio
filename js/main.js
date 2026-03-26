@@ -48,7 +48,7 @@
   burger.addEventListener('click', () => {
     const open = menu.classList.toggle('open');
     burger.classList.toggle('open', open);
-    // Prevent body scroll while nav is open
+    nav.classList.toggle('menu-open', open);
     document.body.style.overflow = open ? 'hidden' : '';
   });
 
@@ -56,6 +56,7 @@
     a.addEventListener('click', () => {
       menu.classList.remove('open');
       burger.classList.remove('open');
+      nav.classList.remove('menu-open');
       document.body.style.overflow = '';
     });
   });
