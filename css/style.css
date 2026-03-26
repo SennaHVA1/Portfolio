@@ -40,7 +40,6 @@ body {
   font-family: var(--f-ui);
   line-height: 1.6;
   overflow-x: hidden;
-  cursor: none;
 }
 img { display: block; max-width: 100%; }
 a { color: inherit; }

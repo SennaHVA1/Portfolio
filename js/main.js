@@ -8,10 +8,34 @@
   const dot  = document.getElementById('cur-dot');
   let mx = 0, my = 0, rx = 0, ry = 0;
 
+  let cursorActive = false;
+
+  function showCustomCursor() {
+    document.body.style.cursor = 'none';
+    ring.style.opacity = '1';
+    dot.style.opacity  = '1';
+    cursorActive = true;
+  }
+
+  function hideCustomCursor() {
+    document.body.style.cursor = 'auto';
+    ring.style.opacity = '0';
+    dot.style.opacity  = '0';
+    cursorActive = false;
+  }
+
   document.addEventListener('mousemove', e => {
     mx = e.clientX; my = e.clientY;
     dot.style.left = mx + 'px';
     dot.style.top  = my + 'px';
+    if (!cursorActive) showCustomCursor();
+  }, { passive: true });
+
+  // Restore native cursor when tab is not visible, re-enable on return
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      hideCustomCursor();
+    }
   });
 
   (function animRing() {
@@ -32,6 +56,7 @@
   window.addEventListener('touchstart', () => {
     ring.style.display = 'none';
     dot.style.display  = 'none';
+    document.body.style.cursor = 'auto';
   }, { once: true, passive: true });
 
   /* ──────────────────────────────
@@ -147,8 +172,11 @@
   const N = AXES.length;
 
   function resizeRC() {
-    const s = rc.offsetWidth;
-    rc.width = s; rc.height = s;
+    const dpr = window.devicePixelRatio || 1;
+    const s   = rc.offsetWidth;
+    rc.width  = s * dpr;
+    rc.height = s * dpr;
+    rx2.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
   resizeRC();
   window.addEventListener('resize', resizeRC, { passive: true });
@@ -158,7 +186,7 @@
   }
 
   function drawRadar() {
-    const s  = rc.width;
+    const s  = rc.offsetWidth;
     const cx = s / 2, cy = s / 2;
     // Reduced maxR (0.28 instead of 0.38) so labels stay within canvas bounds
     const maxR     = s * 0.28;
