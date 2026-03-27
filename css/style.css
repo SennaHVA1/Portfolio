@@ -616,15 +616,11 @@ body::after {
   gap: 3px;
   z-index: 2;
 }
-.orb-sh {
-  font-family: var(--f-display);
-  font-size: clamp(1.4rem, 3vw, 2.2rem);
-  font-weight: 600;
-  font-style: italic;
-  color: var(--gold-bright);
-  line-height: 1;
-  overflow: visible;
-  padding-bottom: 0.1em;
+.orb-logo {
+  width: clamp(52px, 8vw, 72px);
+  height: clamp(52px, 8vw, 72px);
+  object-fit: contain;
+  mix-blend-mode: screen;
 }
 .orb-city {
   font-family: var(--f-mono);
