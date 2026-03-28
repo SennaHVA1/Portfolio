@@ -435,7 +435,7 @@
         el.id = 'shield-alert';
         el.innerHTML =
           '<span class="shield-line">◈ ACCESS GRANTED</span>' +
-          '<span class="shield-sub">S.H.I.E.L.D. · AGENT CLEARANCE LEVEL 7 · WELCOME, SENNA</span>';
+          '<span class="shield-sub">S.H.I.E.L.D. · AGENT CLEARANCE LEVEL 7 · WELCOME, Kazuhisa Hashimoto</span>';
         document.body.appendChild(el);
         setTimeout(function () { el.classList.add('shield-show'); }, 40);
         setTimeout(function () {
