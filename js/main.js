@@ -338,6 +338,39 @@
 
 
   /* ──────────────────────────────
+     EMAIL POPUP
+  ────────────────────────────── */
+  var emailBtn     = document.getElementById('emailBtn');
+  var emailCopyBtn = document.getElementById('emailCopyBtn');
+  var emailCopyTxt = document.getElementById('emailCopyTxt');
+
+  emailBtn.addEventListener('click', function () {
+    var isOpen = emailBtn.classList.toggle('open');
+    emailBtn.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  emailCopyBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    navigator.clipboard.writeText('contact@sennahogendoorn.nl').then(function () {
+      emailCopyBtn.classList.add('copied');
+      emailCopyTxt.textContent = '✓ gekopieerd';
+      setTimeout(function () {
+        emailCopyBtn.classList.remove('copied');
+        emailCopyTxt.textContent = 'kopieer';
+        emailBtn.classList.remove('open');
+        emailBtn.setAttribute('aria-expanded', 'false');
+      }, 2000);
+    });
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!emailBtn.contains(e.target)) {
+      emailBtn.classList.remove('open');
+      emailBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  /* ──────────────────────────────
      EASTER EGGS
      🥚 Er zijn 5 verstopte easter eggs op deze site.
      Je hebt er al één gevonden.
