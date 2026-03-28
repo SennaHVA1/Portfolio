@@ -1281,6 +1281,8 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .nav-logo-img { width: 36px; height: 36px; }
+
   .sec { padding: 6rem 5vw; }
   #traineeship { padding: 8rem 5vw; }
   #contact { padding: 8rem 5vw; }
