@@ -336,4 +336,140 @@
     });
   });
 
+
+  /* ──────────────────────────────
+     EASTER EGGS
+     🥚 Er zijn 5 verstopte easter eggs op deze site.
+     Je hebt er al één gevonden.
+  ────────────────────────────── */
+
+  // ── 1. POKÉMON — Trainer Card in de browser console
+  (function () {
+    const g = 'color:#d49f1e;font-weight:bold;font-family:"IBM Plex Mono",monospace;font-size:11px';
+    const w = 'color:#e2d8b8;font-family:"IBM Plex Mono",monospace;font-size:11px';
+    const b = 'color:#4e90b0;font-family:"IBM Plex Mono",monospace;font-size:11px';
+    const d = 'color:#6e8799;font-family:"IBM Plex Mono",monospace;font-size:11px';
+    const gr= 'color:#3ab57a;font-family:"IBM Plex Mono",monospace;font-size:11px';
+    console.log('%c╔══════════════════════════════════════╗', g);
+    console.log('%c  ★  TRAINER CARD  ·  SENNA HOGENDOORN  ★  ', g);
+    console.log('%c╠══════════════════════════════════════╣', g);
+    console.log('%c  HP   ████████████████  100 / 100     ', gr);
+    console.log('%c  ATK  Penetration Testing       ★★★★★', w);
+    console.log('%c  DEF  Network Security          ★★★★☆', b);
+    console.log('%c  SPD  Python · Linux · Docker   ★★★★★', w);
+    console.log('%c  WIS  Risicomanagement          ★★★☆☆', d);
+    console.log('%c╠══════════════════════════════════════╣', g);
+    console.log('%c  Badges: CPTS · HvA \'25 · Breinstein   ', w);
+    console.log('%c  Locatie: Amsterdam  #052  Ice/Gold    ', d);
+    console.log('%c╚══════════════════════════════════════╝', g);
+    console.log('%c  🎴  Goed bezig, trainer. Ga terug aan het werk.', d);
+  }());
+
+  // ── 2. FORMULE 1 — Klik op "Amsterdam, NL" in de hero → F1 auto raast door pagina
+  (function () {
+    var eyebrow = document.querySelector('.hero-eyebrow-text');
+    if (!eyebrow) return;
+    eyebrow.style.cursor = 'pointer';
+    var racing = false;
+
+    eyebrow.addEventListener('click', function () {
+      if (racing) return;
+      racing = true;
+
+      var wrap = document.createElement('div');
+      wrap.className = 'f1-car';
+      wrap.innerHTML = '<span class="f1-drs">DRS</span>🏎';
+      document.body.appendChild(wrap);
+
+      setTimeout(function () {
+        wrap.remove();
+        racing = false;
+      }, 1800);
+    });
+  }());
+
+  // ── 3. MARVEL — Konami Code → S.H.I.E.L.D. clearance banner
+  (function () {
+    const SEQ = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown',
+                 'ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+    let pos = 0;
+
+    document.addEventListener('keydown', function (e) {
+      pos = (e.key === SEQ[pos]) ? pos + 1 : (e.key === SEQ[0] ? 1 : 0);
+      if (pos === SEQ.length) {
+        pos = 0;
+        var el = document.createElement('div');
+        el.id = 'shield-alert';
+        el.innerHTML =
+          '<span class="shield-line">◈ ACCESS GRANTED</span>' +
+          '<span class="shield-sub">S.H.I.E.L.D. · AGENT CLEARANCE LEVEL 7 · WELCOME, SENNA</span>';
+        document.body.appendChild(el);
+        setTimeout(function () { el.classList.add('shield-show'); }, 40);
+        setTimeout(function () {
+          el.classList.remove('shield-show');
+          setTimeout(function () { el.remove(); }, 500);
+        }, 3200);
+      }
+    });
+  }());
+
+  // ── 4. VOETBAL — Klik de ∞ hero-stat 5× → Ajax toast
+  (function () {
+    var inf = Array.from(document.querySelectorAll('.hero-stat-n'))
+                   .find(function (el) { return el.textContent.trim() === '∞'; });
+    if (!inf) return;
+    inf.style.cursor = 'pointer';
+    var n = 0;
+    inf.addEventListener('click', function () {
+      n++;
+      if (n >= 3) {
+        n = 0;
+        showToast('Ajax is de beste club van Nederland ❌❌❌', 'easter-football');
+      }
+    });
+  }());
+
+  // ── 5. JORDAN 1 — Klik logo (orb / footer) of 3× Amsterdam → Jordan toast
+  (function () {
+    var msg = '👟  WINGS. — Air Jordan 1 High OG';
+
+    // 23× klik op orb-logo of footer-logo (#23 — Michael Jordan)
+    var logoClicks = 0, logoTimer;
+    ['orb-logo', 'foot-logo-img'].forEach(function (cls) {
+      var el = document.querySelector('.' + cls);
+      if (!el) return;
+      el.style.cursor = 'pointer';
+      el.addEventListener('click', function () {
+        logoClicks++;
+        clearTimeout(logoTimer);
+        logoTimer = setTimeout(function () { logoClicks = 0; }, 4000);
+        if (logoClicks >= 23) { logoClicks = 0; showToast(msg, 'easter-jordan'); }
+      });
+    });
+
+    // 3× klik op Amsterdam tekst (alternatief pad)
+    var city = document.querySelector('.orb-city');
+    if (!city) return;
+    city.style.cursor = 'pointer';
+    var n = 0, t;
+    city.addEventListener('click', function () {
+      n++;
+      clearTimeout(t);
+      t = setTimeout(function () { n = 0; }, 1600);
+      if (n >= 3) { n = 0; showToast(msg, 'easter-jordan'); }
+    });
+  }());
+
+  function showToast(msg, cls) {
+    var el = document.createElement('div');
+    el.className = 'easter-toast ' + cls;
+    el.textContent = msg;
+    document.body.appendChild(el);
+    setTimeout(function () { el.classList.add('show'); }, 40);
+    setTimeout(function () {
+      el.classList.remove('show');
+      setTimeout(function () { el.remove(); }, 400);
+    }, 3000);
+  }
+
 }());
