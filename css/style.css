@@ -175,43 +175,136 @@ body::after {
   cursor: none;
   position: relative;
   z-index: 1001;
-  padding: 4px;
+  /* 44px minimum touch target */
+  padding: 10px;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
 }
 .nav-burger span {
   display: block;
-  width: 22px; height: 1.5px;
+  width: 24px; height: 1.5px;
   background: var(--text);
-  transition: transform 0.3s, opacity 0.3s;
+  transition: transform 0.38s var(--ease), opacity 0.25s, width 0.3s var(--ease);
 }
+.nav-burger:hover span { background: var(--champagne); }
 .nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-/* Mobile nav overlay */
+/* ── MOBILE NAV OVERLAY ─────────────────────────────────── */
 .nav-links.open {
   display: flex !important;
   position: fixed;
   inset: 0;
-  background: var(--bg);
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: clamp(1rem, 3.5vh, 2rem);
+  gap: clamp(0.35rem, 1.2vh, 0.9rem);
   z-index: 999;
   overflow-y: auto;
-  padding: 4rem 2rem;
+  padding: 6rem 2rem 5.5rem;
+  counter-reset: nav-count;
+  /* layered background for depth */
+  background:
+    radial-gradient(ellipse 80% 55% at 0% 105%, rgba(184,130,10,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 100% -5%,  rgba(78,144,176,0.06) 0%, transparent 55%),
+    var(--bg);
 }
+
+/* Gold + ice accent line at top */
+.nav-links.open::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--gold-bright) 35%,
+    var(--ice-bright) 65%,
+    transparent 100%
+  );
+  opacity: 0.3;
+}
+
+/* Subtle status signature at bottom */
+.nav-links.open::after {
+  content: 'S.H.  ·  Cybersecurity  ·  Amsterdam';
+  position: absolute;
+  bottom: 1.75rem;
+  font-family: var(--f-mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  opacity: 0.5;
+}
+
+/* Each li gets a counter label and a staggered reveal */
+.nav-links.open li {
+  counter-increment: nav-count;
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
+}
+.nav-links.open li::before {
+  content: counter(nav-count, decimal-leading-zero) ' /';
+  font-family: var(--f-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.14em;
+  color: var(--gold-bright);
+  opacity: 0.55;
+  flex-shrink: 0;
+  transition: opacity 0.25s;
+}
+
+/* Stagger delays */
+.nav-links.open li:nth-child(1) { transition-delay: 0.05s; }
+.nav-links.open li:nth-child(2) { transition-delay: 0.11s; }
+.nav-links.open li:nth-child(3) { transition-delay: 0.17s; }
+.nav-links.open li:nth-child(4) { transition-delay: 0.23s; }
+.nav-links.open li:nth-child(5) { transition-delay: 0.29s; }
+.nav-links.open li:nth-child(6) { transition-delay: 0.35s; }
+
+/* Trigger: JS adds .nav-visible after open so transitions fire */
+.nav-links.nav-visible li {
+  opacity: 1;
+  transform: none;
+}
+.nav-links.nav-visible li::before { opacity: 0.65; }
+
+/* Link text */
 .nav-links.open a {
   font-family: var(--f-display);
-  font-size: clamp(1.6rem, 7vw, 2.6rem);
+  font-size: clamp(2.1rem, 9vw, 3.4rem);
   font-style: italic;
   font-weight: 300;
-  letter-spacing: 0.03em;
+  letter-spacing: -0.01em;
   text-transform: none;
   color: var(--text);
-  padding-bottom: 0.15em;
+  text-decoration: none;
+  padding-bottom: 0.08em;
+  position: relative;
+  transition: color 0.25s;
 }
-.nav-links.open a::after { display: none; }
+
+/* Underline sweep on hover */
+.nav-links.open a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 1px;
+  background: linear-gradient(90deg, var(--gold-bright), transparent);
+  transition: width 0.45s var(--ease);
+}
+.nav-links.open a:hover { color: var(--champagne); }
+.nav-links.open li:hover::before { opacity: 1; color: var(--champagne); }
+.nav-links.open a:hover::after { width: 100%; }
 
 /* ══════════════════════════════════════════
    HERO
@@ -1525,6 +1618,30 @@ footer {
   .certs-grid { grid-template-columns: 1fr; }
   .hero-name { font-size: 3.8rem; }
   .about-vis { width: 240px; height: 240px; max-width: 240px; }
+}
+
+/* ══════════════════════════════════════════
+   PERFORMANCE HINTS
+══════════════════════════════════════════ */
+.ticker-belt { will-change: transform; }
+#hero-canvas  { will-change: contents; }
+#radar        { will-change: contents; }
+.orb          { will-change: transform; }
+
+/* ══════════════════════════════════════════
+   REDUCED MOTION
+══════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+  .ticker-belt { animation: none; }
+  .orb         { animation: none; }
+  .hero-scroll-bar { animation: none; }
+  .status-dot  { animation: none; }
 }
 
 /* ══════════════════════════════════════════

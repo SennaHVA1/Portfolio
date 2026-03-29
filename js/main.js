@@ -31,10 +31,19 @@
     if (!cursorActive) showCustomCursor();
   }, { passive: true });
 
-  // Restore native cursor when tab is not visible, re-enable on return
+  // Track visibility per section so we can resume correctly
+  let heroInView  = true;
+  let radarInView = false;
+
+  // Pause all animations when tab is hidden, resume only what was visible
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       hideCustomCursor();
+      if (heroRafId)  { cancelAnimationFrame(heroRafId);  heroRafId  = null; }
+      if (radarRafId) { cancelAnimationFrame(radarRafId); radarRafId = null; }
+    } else {
+      if (heroInView  && !heroRafId)  heroRafId  = requestAnimationFrame(drawHero);
+      if (radarInView && !radarRafId) radarRafId = requestAnimationFrame(drawRadar);
     }
   });
 
@@ -75,11 +84,18 @@
     burger.classList.toggle('open', open);
     nav.classList.toggle('menu-open', open);
     document.body.style.overflow = open ? 'hidden' : '';
+    if (open) {
+      // Double rAF ensures 'open' display:flex is applied before transition fires
+      requestAnimationFrame(() => requestAnimationFrame(() => menu.classList.add('nav-visible')));
+    } else {
+      menu.classList.remove('nav-visible');
+    }
   });
 
   menu.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
       menu.classList.remove('open');
+      menu.classList.remove('nav-visible');
       burger.classList.remove('open');
       nav.classList.remove('menu-open');
       document.body.style.overflow = '';
@@ -113,6 +129,8 @@
     });
   }
 
+  let heroRafId = null;
+
   function drawHero() {
     hx.clearRect(0, 0, hc.width, hc.height);
     for (let i = 0; i < pts.length; i++) {
@@ -143,9 +161,20 @@
         }
       }
     }
-    requestAnimationFrame(drawHero);
+    heroRafId = requestAnimationFrame(drawHero);
   }
-  drawHero();
+
+  // Pause hero canvas when scrolled out of view
+  new IntersectionObserver(entries => {
+    heroInView = entries[0].isIntersecting;
+    if (heroInView) {
+      if (!heroRafId) heroRafId = requestAnimationFrame(drawHero);
+    } else {
+      if (heroRafId) { cancelAnimationFrame(heroRafId); heroRafId = null; }
+    }
+  }, { threshold: 0 }).observe(document.getElementById('hero'));
+
+  heroRafId = requestAnimationFrame(drawHero);
 
   /* ──────────────────────────────
      RADAR CANVAS
@@ -184,6 +213,8 @@
   function axisAngle(i) {
     return (i / N) * Math.PI * 2 - Math.PI / 2;
   }
+
+  let radarRafId = null;
 
   function drawRadar() {
     const s  = rc.offsetWidth;
@@ -297,15 +328,20 @@
     rx2.fillStyle = 'rgba(184,130,10,0.55)';
     rx2.fill();
 
-    requestAnimationFrame(drawRadar);
+    radarRafId = requestAnimationFrame(drawRadar);
   }
-  drawRadar();
 
-  // Start radar sweep when skills section is visible
+  // Start radar when skills enter view, pause when they leave
   const skillsEl = document.getElementById('skills');
   new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting) radarOn = true;
-  }, { threshold: 0.25 }).observe(skillsEl);
+    radarInView = entries[0].isIntersecting;
+    if (radarInView) {
+      radarOn = true;
+      if (!radarRafId) radarRafId = requestAnimationFrame(drawRadar);
+    } else {
+      if (radarRafId) { cancelAnimationFrame(radarRafId); radarRafId = null; }
+    }
+  }, { threshold: 0.1 }).observe(skillsEl);
 
   /* ──────────────────────────────
      SCROLL REVEAL
