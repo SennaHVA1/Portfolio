@@ -1487,6 +1487,29 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 1.1rem;
+}
+.foot-credit {
+  flex-basis: 100%;
+  text-align: center;
+  font-family: var(--f-mono);
+  font-size: 0.64rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.foot-credit a {
+  color: var(--text-sec);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-hi);
+  padding-bottom: 1px;
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.foot-credit a:hover {
+  color: var(--gold-bright);
+  border-color: var(--gold);
 }
 .foot-left {
   display: flex;
@@ -1609,6 +1632,7 @@ footer {
   .email-addr-text { font-size: 0.65rem; word-break: break-all; white-space: normal; }
   .email-copy-btn { align-self: flex-start; font-size: 0.6rem; padding: 6px 12px; }
   footer { flex-direction: column; gap: 1rem; text-align: center; }
+  .foot-credit { flex-basis: auto; width: 100%; }
   .foot-left { flex-direction: column; align-items: center; gap: 6px; }
   .stags { gap: 6px; }
   .stag { font-size: 0.75rem; white-space: normal; }
