@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CPTS Kennisbank — Senna Hogendoorn</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#06080e">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/cpts.css">
+  <link rel="icon" type="image/png" href="logo_goat_2_BlackBackground.png">
+</head>
+<body class="kb">
+
+  <!-- ░░ GATE (obscurity, geen echte beveiliging) ░░ -->
+  <div id="gate">
+    <div class="gate-box">
+      <img src="logo_goat_2.png" alt="" class="gate-logo">
+      <div class="gate-title">CPTS <em>Kennisbank</em></div>
+      <div class="gate-sub">private · afgeschermd</div>
+      <form class="gate-form" id="gateForm" autocomplete="off">
+        <input type="password" class="gate-input" id="gateInput" placeholder="passphrase" autocomplete="off" spellcheck="false">
+        <button type="submit" class="gate-btn">Ontgrendelen</button>
+        <div class="gate-err" id="gateErr"></div>
+      </form>
+      <div class="gate-note">
+        Alleen voor persoonlijk gebruik.<br>Deze pagina is niet gelinkt, niet geïndexeerd en niet beveiligd ;)
+      </div>
+    </div>
+  </div>
+
+  <!-- ░░ TOPBAR ░░ -->
+  <header class="kb-top">
+    <button class="kb-icon-btn kb-burger" id="kbBurger" aria-label="Menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <a href="index.html" class="kb-brand">
+      <img src="logo_goat_2.png" alt="SH">
+      <span class="kb-brand-txt"><b>Senna Hogendoorn</b><span>CPTS · Kennisbank</span></span>
+    </a>
+    <div class="kb-search">
+      <span class="s-icon">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </span>
+      <input type="text" id="kbSearch" placeholder="Zoek commando, tool of techniek…" spellcheck="false" autocomplete="off">
+      <kbd>/</kbd>
+    </div>
+    <div class="kb-top-actions">
+      <a href="index.html" class="kb-icon-btn" title="Terug naar site" aria-label="Terug naar site">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- ░░ TARGET / VARIABELEN ░░ -->
+  <div class="kb-vars" id="kbVars"></div>
+
+  <!-- ░░ SHELL ░░ -->
+  <div class="kb-shell">
+    <aside class="kb-side" id="kbSide"></aside>
+    <div class="kb-side-scrim" id="kbScrim"></div>
+    <main class="kb-main" id="kbMain"></main>
+  </div>
+
+  <!-- ░░ TERUG NAAR BOVEN / ZOEKEN ░░ -->
+  <button id="kbTop" title="Naar boven & zoeken" aria-label="Naar boven en zoeken">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <div id="kb-toast" aria-live="polite"></div>
+
+  <script src="js/cpts-data.js"></script>
+  <script src="js/cpts.js"></script>
+</body>
+</html>
