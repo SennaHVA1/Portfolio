@@ -1490,6 +1490,15 @@ footer {
   flex-wrap: wrap;
   row-gap: 1.1rem;
 }
+.foot-bio {
+  flex-basis: 100%;
+  max-width: 70ch;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: var(--text-dim);
+}
 .foot-credit {
   flex-basis: 100%;
   text-align: center;
