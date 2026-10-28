@@ -1266,10 +1266,32 @@ body::after {
 ══════════════════════════════════════════ */
 .certs-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 1rem;
   margin-top: 3rem;
 }
+.certs-grid .cert-card     { grid-column: span 2; }
+.certs-grid .cert-card.htb { grid-column: span 3; }
+.cert-progress {
+  width: 70%;
+  height: 3px;
+  background: var(--border);
+  margin: 0.4rem auto 1.2rem;
+  overflow: hidden;
+}
+.cert-progress-fill { height: 100%; background: var(--gold-bright); }
+.proj-link {
+  display: inline-block;
+  margin-top: 0.6rem;
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  color: var(--gold-bright);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(184,130,10,0.35);
+}
+.proj-link:hover { border-color: var(--gold-bright); }
+.tl-org a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(184,130,10,0.35); }
+.tl-org a:hover { color: var(--gold-bright); }
 .cert-card {
   border: 1px solid var(--border);
   padding: 1.9rem;
@@ -1602,6 +1624,9 @@ footer {
   }
   .skills-grid { grid-template-columns: 1fr; gap: 3rem; }
   .certs-grid { grid-template-columns: repeat(2, 1fr); }
+  .certs-grid .cert-card,
+  .certs-grid .cert-card.htb { grid-column: span 1; }
+  .certs-grid .cert-card:last-child { grid-column: 1 / -1; }
   .hero-stats { display: none; }
 
   /* Timeline: all stack left */

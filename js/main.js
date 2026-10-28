@@ -195,8 +195,8 @@
     { label: 'Linux',      val: 0.88, col: '#e2d8b8' },  // systems
     { label: 'Docker',     val: 0.73, col: '#e2d8b8' },  // systems
     { label: 'Azure',      val: 0.68, col: '#4e90b0' },  // cloud/defensive
-    { label: 'ISO/GRC',    val: 0.75, col: '#3ab57a' },  // frameworks — was 'Compliance' → clipped (FIXED)
-    { label: 'Blue Team',  val: 0.71, col: '#4e90b0' },  // defensive
+    { label: 'AD',         val: 0.80, col: '#d49f1e' },  // offensive
+    { label: 'SOC',        val: 0.71, col: '#4e90b0' },  // defensive
   ];
   const N = AXES.length;
 
@@ -428,8 +428,8 @@
     console.log('%c  SPD  Python · Linux · Docker   ★★★★★', w);
     console.log('%c  WIS  Risicomanagement          ★★★☆☆', d);
     console.log('%c╠══════════════════════════════════════╣', g);
-    console.log('%c  Badges: CPTS · HvA \'25 · Breinstein   ', w);
-    console.log('%c  Locatie: Amsterdam  #052  Ice/Gold    ', d);
+    console.log('%c  Badges: HvA \'25 · Breinstein · SIVON  ', w);
+    console.log('%c  Locatie: Purmerend  #052  Ice/Gold    ', d);
     console.log('%c╚══════════════════════════════════════╝', g);
     console.log('%c  🎴  Goed bezig, trainer. Ga terug aan het werk.', d);
   }());
